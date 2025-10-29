@@ -1,6 +1,6 @@
 <script></script>
 <svelte:head>
-	<title>My personal site</title>
+	<title>My personal site :3</title>
 </svelte:head>
 
 <main>
