@@ -1,4 +1,7 @@
-<script></script>
+<script>
+	let billie=$state (false)
+	$effect (() => console.log(billie))
+</script>
 <svelte:head>
 	<title>My personal site :3</title>
 </svelte:head>
@@ -18,7 +21,7 @@
 			</div>
 			<img
 				src="my-melody-cutest-sanrio-character-transparent-png-735811696611645kygewdqrim-removebg-preview.png"
-				alt="an image of my melody"
+				alt=" my melody"
 			/>
 		</div>
 		<div class="likes">
@@ -30,12 +33,13 @@
 			╰། ◉ ◯ ◉ །╯
 		</div>
 		<div class="right-content">
-			<div class="eilish">
+				<div class="eilish" class:clicked={billie}
+				onclick={() =>{billie=!billie}}>
 				Billie Eilish
 				<img
 					src="billie.png"
-					alt="an image of Billie Eilish"
-					class="billie"
+					alt="Billie Eilish"
+				class="billie"
 				/>
 			</div>
 			<div class="dislikes">
@@ -63,6 +67,9 @@
 </main>
 
 <style>
+	.clicked {
+		color: palevioletred;
+	}
 	:global(body
 	) {
 		margin: 0;
