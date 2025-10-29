@@ -1,3 +1,4 @@
+# ...existing code...
 name: Deploy to GitHub Pages
 
 on:
@@ -20,7 +21,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
@@ -53,4 +54,5 @@ jobs:
     steps:
       - name: Deploy
         id: deployment
-        uses: actions/deploy
+        uses: actions/deploy-pages@v1
+# ...existing code...
