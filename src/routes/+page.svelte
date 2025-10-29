@@ -33,7 +33,7 @@
 			<div class="eilish">
 				Billie Eilish
 				<img
-					src="/billie.png"
+					src="billie.png"
 					alt="an image of Billie Eilish"
 					class="billie"
 				/>
