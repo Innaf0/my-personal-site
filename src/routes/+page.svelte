@@ -69,7 +69,7 @@
 	}
 	@font-face {
 		font-family: 'Cutout';
-		src: url('cutout.otf') format('opentype');
+		src: url('./cutout.otf') format('opentype');
 		font-weight: 400;
 		font-style: normal;
 		font-display: swap;
