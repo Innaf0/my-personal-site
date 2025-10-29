@@ -67,13 +67,7 @@
 	) {
 		margin: 0;
 	}
-	@font-face {
-		font-family: 'Cutout';
-		src: url('./cutout.otf') format('opentype');
-		font-weight: 400;
-		font-style: normal;
-		font-display: swap;
-	}
+	
 	.site-content {
 		display: flex;
 		flex-direction: row;
