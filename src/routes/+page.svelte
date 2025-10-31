@@ -1,12 +1,18 @@
 <script>
+	import { useViewTransitionState } from "react-router";
+
 	let billie=$state (false)
 	$effect (() => console.log(billie))
+	let count=$state (0)
+	import { onMount } from "svelte";
+
 </script>
 <svelte:head>
 	<title>My personal site :3</title>
 </svelte:head>
 
 <main>
+
 	<h1 class="site-title">Things about me</h1>
 	<div class="site-content">
 		<div>
@@ -23,14 +29,15 @@
 				src="my-melody-cutest-sanrio-character-transparent-png-735811696611645kygewdqrim-removebg-preview.png"
 				alt=" my melody"
 			/>
+		
 		</div>
-		<div class="likes">
+		<div class="likes" onclick={() =>count=count+1}>
 			MY DISLIKES &gt;⌓&lt;｡ : I hate doing things I'm forced to do, but I think this is quite
 			obvious to anyone. If I'm being honest with you at first I really hated coding because my
 			brother wouldn't leave me alone with coding , but I've grown to like it. I don't like being
 			lonely but most of the time I want to be alone as most teenagers. I hate liars and empty words
 			too. I think that would be it. <br />
-			╰། ◉ ◯ ◉ །╯
+			╰། ◉ ◯ ◉ །╯ <br> {count}
 		</div>
 		<div class="right-content">
 				<div class="eilish" class:clicked={billie}
@@ -40,7 +47,29 @@
 					src="billie.png"
 					alt="Billie Eilish"
 				class="billie"
+				onclick={() =>{
+					billie=!billie;
+			new	Audio ('billie.mp3').play()
+				}
+			}
 				/>
+				<img src="rose.png" 
+				alt="pixelrose"
+				class="rose"
+				>
+				<img src="bow.png"
+				 alt="pixelbow"
+				 class="bow"
+				 >
+				 <img src="cat.png"
+				  alt="pixelcat"
+				  class="cat"
+				  onclick={() => {
+					
+					new Audio('catpurring.mp3').play()
+				  }
+				}
+				  >
 			</div>
 			<div class="dislikes">
 				MY LIKES (◠‿◠✿): <br />
@@ -57,16 +86,28 @@
 				Raven of the inner palace, 7th time loop, Blue spring ride and Horimya.
 				<br />
 				My fav foods are french fries and pasta bolognese, I like drinking Monster energy drinks too,
-				my fav flavour is ultra strawberry dreams
+				my fav flavours are ultra strawberry dreams and pipeline punch.
 				<br />
-				My hobbies are gaming, drawing but only on paper, coding and I really like singing too but I
+				My hobbies are gaming, drawing, coding and I really like singing too but I
 				don't have a good voice (˃̣̣̥⌓˂̣̣̥⋆).
 			</div>
 		</div>
 	</div>
+	<a href="custom-page" class="drawings">Go to my drawings
+	
+	</a>
 </main>
 
 <style>
+.drawings {
+	position: absolute;
+	top: 30px;
+	right: 200px;
+	padding: 10px;
+	font-size: 24px;
+	background: pink;
+	color: palevioletred;
+}
 	.clicked {
 		color: palevioletred;
 	}
@@ -98,6 +139,33 @@
 		font-size: 20px;
 		background-image: url(https://i.pinimg.com/1200x/c2/45/21/c245210b28511672877e4d09efc2e18a.jpg);
 	}
+	.rose {
+height: auto;
+max-width: 250px;
+width: 100%;
+display: block;
+mask-repeat: no-repeat;
+transform: translateY(-650px);
+	}
+.bow {
+	height: auto;
+	max-width: 200px;
+	width: 100%;
+	display: block;
+	mask-repeat: no-repeat;
+	margin-top: -150px;
+	margin-left: -850px;
+	position: relative;
+	z-index: 1;
+}
+.cat {
+height: 200px;
+max-width:175px;
+width: 100%;
+transform: translate(-550px,-885px);
+position: relative;
+z-index: 1;
+}
 	img {
 		height: auto;
 		max-width: 275px;
