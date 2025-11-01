@@ -93,12 +93,21 @@
 			</div>
 		</div>
 	</div>
-	<a href="custom-page" class="drawings">Go to my drawings
-	
-	</a>
+	<a href="custom-page" class="drawings">Go to my drawings</a>
+	<a href="billie-page" class="billieeilish">Billie fanpage</a>
 </main>
 
 <style>
+	.billieeilish {
+		position: absolute;
+		top: 800px;
+		left: 1025px;
+		font-size: 28px;
+		padding: 10px;
+		background: pink;
+		color: palevioletred;
+
+	}
 .drawings {
 	position: absolute;
 	top: 30px;
