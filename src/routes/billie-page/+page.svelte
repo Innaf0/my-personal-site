@@ -1,4 +1,5 @@
 <script>
+	
     function playsound1() {
         new Audio("lovely.mp3").play();
     }
@@ -22,6 +23,31 @@
     }
     function playsound8() {
         new Audio("wildflower.mp3").play();
+    }
+    function playsound9() {
+        new Audio("what was i made for.mp3").play();
+    }
+    function playsound10() {
+        new Audio("idontwannabeuanymore.mp3").play();
+    }
+    let albums = [
+        {name: "Happier Than Ever", votes: 0},
+        {name:"When We All Fall Asleep,Where Do We Go?", votes:0},
+        {name:"Don't Smile At Me", votes:0},
+        {name:"other", votes:0},
+    ];
+     function vote(album) {
+    album.votes++;
+    albums = [...albums];
+  }
+    $: totalvotes = albums.reduce((sum, a) => sum+a.votes, 0);
+    let comment = "";
+    let comments = [];
+    function addcomment() {
+        if (comment !== "") {
+            comments.push(comment);
+            comment = "";
+        }
     }
 </script>
 <main>
@@ -59,12 +85,54 @@ really thankful to her in way. Even though she'll probably never know this I'm s
 1,703,999,326	829,156 <br>
 <button on:click={playsound8}>WILDFLOWER</button> <br>
 1,627,622,919	2,450,414 <br>
-<button on:click={playsound9}>What Was I Made For?</button> [From The Motion Picture "Barbie"] <br>
+<button on:click={playsound9}>What Was I Made For?</button> [From The Movie "Barbie"] <br>
 1,460,749,518	938,887 <br>
-idontwannabeyouanymore <br>
+<button on:click={playsound10}>idontwannabeyouanymore</button> <br>
 1,299,421,779	400,815 <br>
-
     </div>
+    <div class="tour">
+THE REST OF HER TOUR DATES: <br>
+Nov 7 & 8, 2025 — Smoothie King Center, New Orleans, LA <br>
+
+ • Nov 10 & 11, 2025 — BOK Center, Tulsa, OK <br>
+
+
+ • Nov 13 & 14, 2025 — Moody Center ATX, Austin, TX <br>
+
+
+ • Nov 18 & 19, 2025 — PHX Arena (Mortgage Matchup Center), Phoenix, AZ <br>
+
+
+ • Nov 22 & 23, 2025 — Chase Center, San Francisco, CA <br>
+    </div>
+    <div class="poll">
+<h2>Which is ur fav Billie album?</h2>
+{#each albums as album}
+<button on:click={() => vote(album)}>{album.name}</button>
+{/each}
+<h3>Results:</h3>
+{#each albums as album}
+    <p>{album.name}: {album.votes}</p>
+  {/each}
+    </div>
+    <div class="comments">
+        <h2>Leave acomment for Billie!</h2>
+        <input type="text" bind:value={comment} placeholder="Write something..."/>
+        <button on:click={addcomment}>Post</button>
+        <ul>
+            {#each comments as c}
+      <li>{c}</li>
+    {/each}
+  </ul>
+    </div>
+    <img src="https://i.pinimg.com/736x/5e/b6/0c/5eb60c9bf11d2185f671ced40bc9d2c2.jpg" 
+    alt="billie album"
+    class="album"
+    >
+    <img src="https://scontent.fotp3-1.fna.fbcdn.net/v/t1.15752-9/568658292_2245292135973686_237013872248418856_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=6ssD9PcCFeIQ7kNvwG0m3vt&_nc_oc=AdkxffvVNCKIB84sazpc44pv_m2CdiTs2KLXR0wxqSud26SRlLwpqiDQTjF9ugJadxs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fotp3-1.fna&oh=03_Q7cD3wEZQu0f0q6eAYQofWeOjHA4gCDF488cIQxW3glcybOpDA&oe=692D155E" 
+    alt="billie flag"
+    class="flag"
+    >
 </main>
 <style>
     main {
@@ -122,5 +190,58 @@ idontwannabeyouanymore <br>
         padding-bottom: 90px;
         font-size: 18px;
         color: darkblue;
+    }
+    .tour {
+        background-image: url(https://scontent.fotp3-4.fna.fbcdn.net/v/t1.15752-9/569883976_1835731307039627_3975600273268688239_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_ohc=UbOQLTiH7cUQ7kNvwF17Y46&_nc_oc=Admi0hEqGyehI5xj4iK8XpSpOVftZ3DyO6VRxxlfBB9ShMzYajSFAjSF0vjBjnc_Zu8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fotp3-4.fna&oh=03_Q7cD3wGN73lZG_BTXKsvKXnkyMX3CXeQBmwyh-bliJCDbmwFMA&oe=692CF49C);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 350px;
+        width: 90%;
+        max-width: 200px;
+        margin-top: -500px;
+        position: absolute;
+        margin-left: 1050px;
+        padding: 60px;
+        padding-top: 90px;
+    }
+    .poll {
+    background-color: royalblue;
+    color: lightyellow;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px; 
+    font-family: 'Arial', sans-serif;
+    top: 200px;
+    left: 600px;
+    position: absolute;
+    }
+    .comments {
+        background-color: darkblue;
+        color: lightblue;
+        padding: 20px;
+        border-radius: 10px;
+        width: 350px;
+        margin: 20px;
+         font-family: Arial, sans-serif;
+         left: 600px;
+         position: absolute;
+         top: 600px;
+    }
+    .album {
+     height: 350px;
+    width: 90%;
+    max-width: 400px;
+    margin-left: 950px;
+    margin-top: -875px;
+    position: absolute;
+    }
+    .flag {
+        height: 350px;
+        width: 90%;
+        max-width: 500px;
+        margin-left: 535px;
+        top: 775px;
+        position: absolute;
     }
 </style>
